@@ -1,5 +1,5 @@
 pipeline{
-    agent: {docker {image 'maven'}}
+    agent {docker {image 'maven'}}
     stages{
         stage('Developer Build'){
             steps{
