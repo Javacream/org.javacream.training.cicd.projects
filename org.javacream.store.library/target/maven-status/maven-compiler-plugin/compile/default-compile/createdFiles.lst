@@ -1,0 +1,4 @@
+org/javacream/store/api/StoreService.class
+org/javacream/store/api/StoreServiceConfiguration.class
+org/javacream/store/decorators/AuditingStoreServiceDecorator.class
+org/javacream/store/impl/DatabaseStoreService.class

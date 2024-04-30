@@ -1,0 +1,5 @@
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.application/src/main/java/org/javacream/books/repository/web/BooksWebRepository.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.application/src/main/java/org/javacream/books/BooksApplication.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.application/src/main/java/org/javacream/books/warehouse/web/BooksWebService.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.application/src/main/java/org/javacream/books/isbngenerator/web/IsbnGeneratorWebService.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.application/src/main/java/org/javacream/books/order/web/OrderWebService.java

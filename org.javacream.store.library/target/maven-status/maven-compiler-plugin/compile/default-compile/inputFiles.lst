@@ -1,0 +1,4 @@
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.store.library/src/main/java/org/javacream/store/api/StoreServiceConfiguration.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.store.library/src/main/java/org/javacream/store/api/StoreService.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.store.library/src/main/java/org/javacream/store/impl/DatabaseStoreService.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.store.library/src/main/java/org/javacream/store/decorators/AuditingStoreServiceDecorator.java

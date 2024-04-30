@@ -1,0 +1,9 @@
+org/javacream/books/repository/test/BooksRepositoryTest.class
+org/javacream/books/order/test/OrderServiceTest.class
+org/javacream/books/isbngenerator/test/IsbnGeneratorTest.class
+org/javacream/books/warehouse/test/BooksServiceTestConfiguration.class
+org/javacream/books/warehouse/test/BooksServiceTest.class
+org/javacream/books/isbngenerator/test/RandomIsbnGeneratorTest.class
+org/javacream/books/warehouse/test/TestActor.class
+org/javacream/books/isbngenerator/test/IsbnGeneratorTest$IsbnGeneratorTestConfiguration.class
+org/javacream/books/isbngenerator/test/RandomIsbnGeneratorTest$IsbnGeneratorTestConfiguration.class

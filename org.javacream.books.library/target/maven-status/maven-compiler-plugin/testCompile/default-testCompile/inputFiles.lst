@@ -1,0 +1,7 @@
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/test/java/org/javacream/books/order/test/OrderServiceTest.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/test/java/org/javacream/books/isbngenerator/test/IsbnGeneratorTest.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/test/java/org/javacream/books/warehouse/test/BooksServiceTest.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/test/java/org/javacream/books/warehouse/test/TestActor.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/test/java/org/javacream/books/warehouse/test/BooksServiceTestConfiguration.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/test/java/org/javacream/books/isbngenerator/test/RandomIsbnGeneratorTest.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/test/java/org/javacream/books/repository/test/BooksRepositoryTest.java

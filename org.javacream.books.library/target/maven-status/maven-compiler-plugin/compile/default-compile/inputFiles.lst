@@ -1,0 +1,17 @@
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/main/java/org/javacream/books/order/api/OrderService.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/main/java/org/javacream/books/order/api/OrderStatus.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/main/java/org/javacream/books/BooksConfiguration.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/main/java/org/javacream/books/isbngenerator/impl/SequenceIsbnGeneratorService.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/main/java/org/javacream/books/repository/api/BooksRepository.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/main/java/org/javacream/books/isbngenerator/api/IsbnGeneratorService.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/main/java/org/javacream/books/order/api/OrderRepository.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/main/java/org/javacream/books/warehouse/api/BooksServiceConfiguration.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/main/java/org/javacream/books/warehouse/api/BooksService.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/main/java/org/javacream/books/warehouse/api/Book.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/main/java/org/javacream/books/repository/api/BookEntity.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/main/java/org/javacream/books/warehouse/api/BookException.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/main/java/org/javacream/books/order/api/OrderEntity.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/main/java/org/javacream/books/warehouse/decorators/CloningBooksServiceDecorator.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/main/java/org/javacream/books/order/impl/DatabaseOrderService.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/main/java/org/javacream/books/warehouse/impl/DatabaseBooksService.java
+/home/rainersawitzki/org.javacream.training.cicd.projects/org.javacream.books.library/src/main/java/org/javacream/books/isbngenerator/impl/RandomIsbnGeneratorService.java

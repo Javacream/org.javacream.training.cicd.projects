@@ -1,0 +1,4 @@
+org/javacream/util/aspects/TracingAspect.class
+org/javacream/util/log/impl/DatabaseLogService.class
+org/javacream/util/aspects/ProfilingAspect.class
+org/javacream/util/log/api/LogService.class

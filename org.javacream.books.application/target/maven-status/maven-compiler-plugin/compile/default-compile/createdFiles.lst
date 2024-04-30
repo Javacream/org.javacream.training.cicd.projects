@@ -1,0 +1,5 @@
+org/javacream/books/warehouse/web/BooksWebService.class
+org/javacream/books/isbngenerator/web/IsbnGeneratorWebService.class
+org/javacream/books/BooksApplication.class
+org/javacream/books/order/web/OrderWebService.class
+org/javacream/books/repository/web/BooksWebRepository.class
