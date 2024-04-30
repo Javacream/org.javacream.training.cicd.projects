@@ -46,5 +46,9 @@
       <id>nexus-snapshots</id>
       <url>javacream.eu:8081/nexus/content/repositories/snapshots</url>
    </snapshotRepository>
+   <repository>
+      <id>nexus-snapshots</id>
+      <url>javacream.eu:8081/nexus/content/repositories/releases</url>
+   </repository>
 </distributionManagement>
 </project>

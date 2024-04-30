@@ -1,9 +1,9 @@
 pipeline{
-    agent {docker {image 'maven'}}
+    agent {docker {image 'javacream/maven'}}
     stages{
         stage('Developer Build'){
             steps{
-                sh 'mvn install'
+                sh 'mvn deploy'
             }
         }
     }
