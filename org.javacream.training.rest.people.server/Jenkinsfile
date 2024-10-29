@@ -4,7 +4,7 @@ pipeline{
         stage('Developer Build'){
             agent {docker {image 'maven'}}
             steps{
-                sh 'mvn install'
+                sh 'mvn -f org.javacream.training.rest.people.server/pom.xml install'
                 sh 'ls target'
             }
         }
