@@ -1,9 +1,22 @@
 pipeline {
-    agent {docker {image "python:2"}}
+    agent any
     stages {
-        stage("demo"){
+        stage("demo python 2"){
+            agent {docker {image "python:2"}}
             steps{
                 sh "python -V"
+            }
+        }
+        stage("demo python 3"){
+            agent {docker {image "python:3"}}
+            steps{
+                sh "python -V"
+            }
+        }
+        stage("demo java 8"){
+            agent {docker {image "openjdk:8-alpine"}}
+            steps{
+                sh "java -version"
             }
         }
     }
