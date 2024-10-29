@@ -23,5 +23,12 @@ pipeline{
                 sh "docker stop webserver_sawitzki"
             }
         }
+        stage("push image"){
+            steps{
+                sh "docker tag ${ARTIFACT_NAME} javacream.eu:8083/${ARTIFACT_NAME}" 
+                sh "docker login javacream.eu:8083 -u admin -p admin123!"
+                sh "docker push javacream.eu:8083/${ARTIFACT_NAME}"
+            }
+        }
     }
 }
