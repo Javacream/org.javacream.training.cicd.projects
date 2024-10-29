@@ -1,0 +1,27 @@
+pipeline{
+    agent any
+    environment{
+        ARTIFACT_NAME = "javacream/webapp:1.1"
+    }
+    stages{
+        stage("build image"){
+            steps{
+                sh "docker build -t  ${ARTIFACT_NAME} src/webapp"
+            }
+        }
+        stage("check image exists"){
+            steps{
+                sh 'docker images'
+            }
+        }
+        stage("check image is working"){
+            steps{
+                sh "docker run --rm --name webserver_sawitzki -p 9090:80 -d ${ARTIFACT_NAME}"
+                sh "curl 10.160.1.14:9090 >> index.html"
+                sh "ls"
+                sh "cat index.html"
+                sh "docker stop webserver_sawitzki"
+            }
+        }
+    }
+}
