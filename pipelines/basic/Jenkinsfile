@@ -1,15 +1,25 @@
 pipeline {
     agent none
+    environment {
+        NAME = 'Sawitzki'
+    }
     stages {
+
         stage('Stage 1') {
+            environment {
+                FIRSTNAME = 'Rainer'
+                FIRSTNAME2 = 'Ulrich'
+            }
             agent {label "linux&&agent1"}
             steps {
-                echo 'Hello World'
+                echo "Hello ${FIRSTNAME} ${FIRSTNAME2} ${NAME} from Stage 1"
             }
         }
         stage('Stage 2') {
             agent {label "linux&&agent2"}
             steps {
+                /* echo "Hello ${FIRSTNAME} ${NAME} from Stage 2" */
+                echo "Hello ${NAME} from Stage 2"
                 sh 'ls -l'
             }
         }
