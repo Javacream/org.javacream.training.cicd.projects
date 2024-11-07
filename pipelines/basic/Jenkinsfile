@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
     environment {
         NAME = 'Sawitzki'
     }
@@ -18,10 +18,33 @@ pipeline {
         stage('Stage 2') {
             agent {label "linux&&agent2"}
             steps {
-                /* echo "Hello ${FIRSTNAME} ${NAME} from Stage 2" */
                 echo "Hello ${NAME} from Stage 2"
+            }
+        }
+        stage('Stage 3') {
+            agent {label "linux&&agent2"}
+            when {expression {env.FIRSTNAME != null}}
+            steps {
+                echo "Hello ${FIRSTNAME} ${NAME} from Stage 2"
                 sh 'ls -l'
             }
         }
+    }
+    post{
+        always {
+            echo 'always'
+            sh 'printenv'
+
+        }
+        success {
+            echo 'success'
+            
+        }
+
+        failure {
+            echo 'failure'
+            
+        }
+
     }
 }
