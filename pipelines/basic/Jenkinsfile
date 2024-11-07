@@ -29,6 +29,25 @@ pipeline {
                 sh 'ls -l'
             }
         }
+        stage('parallel'){
+            parallel{
+                stage('Stage 4a') {
+                    steps {
+                        echo "Stage 4a"
+                    }
+                }
+                stage('Stage 4b') {
+                    steps {
+                        echo "Stage 4b"
+                    }
+                }
+            }
+        }
+        stage('Stage 5') {
+            steps {
+                echo "Stage 5"
+            }
+        }
     }
     post{
         always {
