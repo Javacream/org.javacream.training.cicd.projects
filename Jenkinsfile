@@ -24,7 +24,7 @@ pipeline {
             steps {
                     sh 'docker run -d --rm --name sawitzki_app -p 8090:8080 javacream/app:1.0'
                     sh 'sleep 3'
-                    sh 'wget -O people.json http://localhost:8090/people'
+                    sh 'curl http://localhost:8090/people > people.json '
                     sh 'cat people.json'
                     sh 'docker stop sawitzki_app'
             }
