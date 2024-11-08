@@ -12,8 +12,8 @@ pipeline {
             agent {docker {image "openjdk:8-alpine"}}
 
             steps {
-                    sh 'ls org.javacream.training.rest.people.server/target'
                     sh 'java -jar org.javacream.training.rest.people.server/target/org.javacream.training.rest.people.server-1.0.jar &'
+                    sh 'sleep 3'
                     sh 'wget -O people.json localhost:8080/people'
                     sh 'cat people.json'
                     sh 'killall java'
