@@ -22,7 +22,7 @@ pipeline {
             agent {label 'docker'}
 
             steps {
-                    sh 'docker run --rm --name sawitzki_app -p 8090:8080 javacream/app:1.0'
+                    sh 'docker run -d --rm --name sawitzki_app -p 8090:8080 javacream/app:1.0'
                     sh 'sleep 3'
                     sh 'wget -O people.json http://localhost:8090/people'
                     sh 'cat people.json'
