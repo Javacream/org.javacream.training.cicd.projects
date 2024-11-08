@@ -7,5 +7,10 @@ pipeline {
                 sh 'docker --version'
             }
         }
+        stage('Check Maven Build Container') {
+            steps {
+                sh 'docker run --rm maven mvn -version'
+            }
+        }
     }
 }
