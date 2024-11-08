@@ -1,26 +1,11 @@
 pipeline {
-    agent {label "docker"}
+    agent {docker {image "maven"}}
 
     stages {
-        stage('Check docker') {
-            steps {
-                sh 'docker --version'
-            }
-        }
-        stage('Check Maven Build Container') {
-            steps {
-                sh 'docker run --rm maven mvn -version'
-            }
-        }
         stage('Developer Build') {
             steps {
-                /* Funktioniert so nicht. Es fehlt das Mounten des Workspaces!
-
-                sh 'docker run --rm maven mvn install'
-
-                */
+                sh 'mvn -version'
                 sh 'ls'
-                sh 'docker run --rm maven ls'
             }
         }
 
