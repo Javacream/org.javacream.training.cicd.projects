@@ -20,6 +20,7 @@ pipeline {
 
                 */
                 sh 'ls'
+                sh 'docker run --rm maven ls'
             }
         }
 
