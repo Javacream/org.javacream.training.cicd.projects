@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('Developer Build') {
             steps {
-                sh 'mvn -version'
-                sh 'ls'
+                sh 'mvn -f org.javacream.training.rest.people.server install ' 
+                sh 'ls org.javacream.training.rest.people.server/target'
             }
         }
 
