@@ -23,7 +23,7 @@ pipeline {
 
             steps {
                     sh 'docker run -d --rm --name sawitzki_app -p 8090:8080 javacream/app:1.0'
-                    sh 'sleep 3'
+                    sh 'sleep 10'
                     sh 'curl http://10.160.1.128:8090/people > people.json '
                     sh 'cat people.json'
                     sh 'docker stop sawitzki_app'
