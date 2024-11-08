@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Check Maven Build Container') {
             steps {
-                sh 'docker run --rm maven mvn -version'
+                sh 'docker run --rm maven:3.8 mvn -version'
             }
         }
     }
