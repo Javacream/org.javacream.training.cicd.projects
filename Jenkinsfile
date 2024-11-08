@@ -31,6 +31,13 @@ pipeline {
                     sh 'docker stop sawitzki_app'
             }
         }
+        stage('Deliver'){
+            agent {label 'docker'}
+            steps{
+                sh 'docker tag javacream/app:1.0 javacream.eu:8083/javacream/app:1.0'
+                sh 'docker push javacream.eu:8083/javacream/app:1.0'
+            }
+        }
 
     }
 }
