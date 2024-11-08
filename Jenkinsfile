@@ -34,7 +34,7 @@ pipeline {
         stage('Deliver'){
             agent {label 'docker'}
             steps{
-                sh 'docker login -u admin -p admin123!'
+                sh 'docker login javacream.eu:8083 -u admin -p admin123!'
                 sh 'docker tag javacream/app:1.0 javacream.eu:8083/javacream/app:1.0'
                 sh 'docker push javacream.eu:8083/javacream/app:1.0'
             }
