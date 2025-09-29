@@ -25,7 +25,7 @@ pipeline {
             {
                 expression
                 {
-                    return env.runTests == 1
+                    return env.runTests == 0
                 }
             }
                         
