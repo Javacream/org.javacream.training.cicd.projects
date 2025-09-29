@@ -1,8 +1,9 @@
-pipeline {
-    execute_state2 = "true"
-    
+pipeline {    
     agent any
 
+    environment  {
+        execute_state2 = true
+    }
     
 
     stages {
