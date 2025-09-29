@@ -12,8 +12,8 @@ pipeline {
       }
 
       steps{
-        echo 'Stage Message: ${MESSAGE}'
-        echo 'Global Message: ${MESSAGE_GLOBAL}'
+        echo "Stage Message: ${MESSAGE}"
+        echo "Global Message: ${MESSAGE_GLOBAL}"
       }
     }
 
@@ -30,8 +30,8 @@ pipeline {
       }
 
       steps{
-        echo '${MESSAGE_GLOBAL}'
-        echo '${MESSAGE_END}'
+        echo "Global Message: ${MESSAGE_GLOBAL}"
+        echo "End Message: ${MESSAGE_END}"
       }
     }
   }
