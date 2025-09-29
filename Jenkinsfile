@@ -8,7 +8,9 @@ pipeline {
 
     stages {
         stage('Stage 1') {
-            def message1 = "Message for Stage 1"
+            environment {
+                message1 = "Message for Stage 1"
+            }
             steps {
                 echo '${message1}'
             }
