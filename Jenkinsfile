@@ -3,7 +3,7 @@ pipeline {
 
     environment
     {
-        RUN_TESTS = 'false' // bool flag to control stage 2
+        RUN_TESTS = null // bool flag to control stage 2
     }
 
     stages {
@@ -38,6 +38,9 @@ pipeline {
         }
 
         stage('Deploy') {
+
+            when { expression { return env.RUN_TESTS }}
+
             parallel
             {
                 stage ('Deploy Windows')
