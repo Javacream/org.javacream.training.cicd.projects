@@ -1,20 +1,43 @@
 pipeline {
     agent any
 
+    globalVar = "Globaler Text"
+
     stages {
-        stage('Hello') {
-            message = "Hello part one"
+        stage('Start') {
+
+            startVar = "Variable von Start"
+
             steps {
-                echo 'Hello Jenkins File'
-                echo 'Hello me hearties!'
-                echo '${message}'
+                echo "${startVar}"
             }
         }
-        stage('Board') {
+        stage('Middle') {
+
+            when {
+                branch 'hopfhauer_29092025'
+            }
+
+            middleVar = "Variable von Middle"
+
             steps {
-                echo 'Release the parrots!'
-                echo 'Test!?'
+                echo "${middleVar}"
             }
         }
+        stage('End') {
+
+            steps {
+                echo "${globalVar}"
+            }
+        }
+    }
+
+    post {
+        always {
+            globalVar = "Ende"
+            echo "${globalVar}"
+            sh 'printenv'
+        }
+
     }
 }
