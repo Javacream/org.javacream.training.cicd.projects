@@ -3,7 +3,7 @@ pipeline {
 
     environment
     {
-        runTests = 0 // bool flag to control stage 2
+        RUN_TESTS = 'false' // bool flag to control stage 2
     }
 
     stages {
@@ -11,19 +11,13 @@ pipeline {
             steps
             {
                 echo "Starting Stage 1..."
-                env.runTests = 1
+                echo "Test run: ${RUN_TESTS}"
+                RUN_TESTS = 'true'
+                echo "Test run: ${RUN_TESTS}"
             }            
         }
 
-        stage('Test') {
-            when
-            {
-                expression
-                {
-                    return env.runTests == 0
-                }
-            }
-                        
+        stage('Test') {                       
             steps
             {
                 echo 'Stage 1 was successful - ok!'
