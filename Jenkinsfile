@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    environment {
+        STAGECHECK = "true"
+    }
     stages {
         stage('Hello') {
             steps {
@@ -18,6 +20,7 @@ pipeline {
         }
 
         stage('Stage3') {
+            when { expression { env.STAGECHECK == "true" } }
             steps {
                 echo "Stage 3"
                 sh 'printenv'
