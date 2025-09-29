@@ -1,11 +1,21 @@
 pipeline {
   agent any
+  messageGlobal = "Global Message"
 
   stages {
+    message = "Hello Schwabe editing from Message VSC"
     stage('Hello') {
-      message = "editing from Message VSC"
       steps{
-        echo 'Hello Schwabe ${message}'
+        echo '${message}'
+        echo '${messageGlobal}'
+      }
+    }
+
+    stage('Goodbye') {
+      messageEnd = "Hello Schwabe editing from Message VSC"
+      steps{
+        echo '${messageGlobal}'
+        echo '${messageEnd}'
       }
     }
   }
