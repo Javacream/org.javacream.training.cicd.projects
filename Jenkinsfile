@@ -39,7 +39,7 @@ pipeline {
 
         stage('Deploy') {
 
-            when { expression { return env.RUN_TESTS }}
+            when { expression { return env.RUN_TESTS.toBoolean() }}
 
             parallel
             {
