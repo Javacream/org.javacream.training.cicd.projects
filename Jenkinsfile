@@ -12,8 +12,6 @@ pipeline {
       }
 
       steps{
-        def localMessage = 'local message'
-        echo 'Local Message: ${localMessage}'
         echo 'Stage Message: ${MESSAGE}'
         echo 'Global Message: ${MESSAGE_GLOBAL}'
       }
