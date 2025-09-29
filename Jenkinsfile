@@ -10,13 +10,8 @@ pipeline {
         stage('Build') {
             steps
             {
-                script
-                {
-                    //echo "Starting Stage 1: Build ${REPO_NAME}"
-                    
-                    // Set condition to execute Stage 2
-                    env.runTests = 1
-                }
+                echo "Starting Stage 1..."
+                env.runTests = 1
             }            
         }
 
