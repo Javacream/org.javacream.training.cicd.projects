@@ -1,7 +1,9 @@
 pipeline {
+    execute_state2 = "true"
+    
     agent any
 
-    execute_state2 = "true"
+    
 
     stages {
         stage('Stage 1') {
