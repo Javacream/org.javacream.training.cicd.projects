@@ -20,7 +20,7 @@ pipeline {
         }
 
         stage('Stage3') {
-            when { expression { env.STAGECHECK == "true" } }
+            when { expression { env.STAGECHECK == "false" } }
             steps {
                 echo "Stage 3"
                 sh 'printenv'
