@@ -40,7 +40,6 @@ pipeline {
 
     post {
         always {
-            globalVar = 'Ende'
             echo "${globalVar}"
             sh 'printenv'
         }
