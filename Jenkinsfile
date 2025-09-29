@@ -1,6 +1,8 @@
 pipeline {
     agent any
 
+    execute_state2 = "true"
+
     stages {
         stage('Stage 1') {
             steps {
@@ -8,6 +10,9 @@ pipeline {
             }
         }
         stage('Stage 2') {
+            when {
+                environment name: 'execute_state2', value: 'true'
+            }
             steps {
                 echo 'Stage 2'
             }
