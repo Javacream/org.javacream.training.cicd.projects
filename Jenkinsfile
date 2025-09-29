@@ -5,6 +5,7 @@ pipeline {
         stage('Hello World') {
             steps {
                 echo 'Hello'
+                echo 'World'
             }
         }
         stage('From git') {
