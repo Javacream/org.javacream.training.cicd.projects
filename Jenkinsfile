@@ -24,7 +24,19 @@ pipeline {
             steps {
                 echo "Stage 3"
                 sh 'printenv'
+                asdfsad
             }
+        }
+    }
+    post {
+        always {
+            echo 'Pipeline finished.'
+        }
+        success {
+            echo 'Pipeline was successful!'
+        }
+        failure {
+            echo 'Pipeline failed.'
         }
     }
 }
