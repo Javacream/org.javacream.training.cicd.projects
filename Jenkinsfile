@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                echo 'Hello Jenkins File Hieber'
+                echo 'Hello Jenkins File Hieber in VSC'
             }
         }
     }
