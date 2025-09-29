@@ -5,7 +5,7 @@ pipeline {
         stage('Hello') {
             steps {
                 echo 'Hello Jenkins File :)'
-                echo 'Second line in VSC'
+                echo 'Second line in VSC ... '
             }
         }
     }
