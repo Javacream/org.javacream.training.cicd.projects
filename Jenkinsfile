@@ -26,11 +26,13 @@ pipeline {
     }
 
     stage('Goodbye') {
-      messageEnd = "Hello Schwabe editing from Message VSC"
+      environment{
+        MESSAGE_END = "Hello Schwabe editing from Message VSC"
+      }
 
       steps{
         echo '${MESSAGE_GLOBAL}'
-        echo '${messageEnd}'
+        echo '${MESSAGE_END}'
       }
     }
   }
