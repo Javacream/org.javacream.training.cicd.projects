@@ -3,9 +3,11 @@ pipeline {
 
     stages {
         stage('Hello') {
+            message = 'Hello stage'
             steps {
                 echo 'Hello Jenkins File'
                 echo 'Hello me hearties!'
+                echo ${message}
             }
         }
         stage('Board') {
