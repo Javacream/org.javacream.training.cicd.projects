@@ -1,14 +1,13 @@
 pipeline {
     agent any
 
-    environment {
-
-        runTests = 'false' // bool flag to control stage 2
-    }
 
 
     stages {
+        environment {
 
+            runTests = 'false' // bool flag to control stage 2
+        }
         stage('Build') {
 
             steps {
