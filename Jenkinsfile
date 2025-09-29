@@ -39,12 +39,11 @@ pipeline {
         stage('Deploy') {
             parallel
             {
-                echo 'Starting Stage 3: Deploying Software :)'
-
                 stage ('Deplay Windows')
                 {
                     steps 
                     {
+                        echo 'Starting Stage 3.1: Deploying Software :)'
                         echo "Windows done!"
                     }
                 }
@@ -52,6 +51,7 @@ pipeline {
                 {
                     steps 
                     {
+                        echo 'Starting Stage 3.2: Deploying Software :)'
                         echo "Linux done!"
                     }
                 }
