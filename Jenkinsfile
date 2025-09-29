@@ -8,6 +8,9 @@ pipeline {
 
 
     stages {
+
+        echo "Jenkins at repository: ${REPO_NAME}"
+
         stage('Build') {
             steps {
                 script
