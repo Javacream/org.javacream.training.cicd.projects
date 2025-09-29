@@ -3,8 +3,9 @@ pipeline {
 
     stages {
         stage('Hello') {
+            messages = "Hello Jenkins File Hieber in VSC via VAR"
             steps {
-                echo 'Hello Jenkins File Hieber in VSC'
+                echo '${message}'
             }
         }
     }
