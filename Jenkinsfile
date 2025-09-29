@@ -1,12 +1,16 @@
 pipeline {
     agent any
 
-    globalVar = 'Globaler Text'
+    environment {
+        globalVar = 'Globaler Text'
+    }
 
     stages {
         stage('Start') {
 
-            startVar = 'Variable von Start'
+            environment {
+                startVar = 'Variable von Start'
+            }
 
             steps {
                 echo "${startVar}"
@@ -18,7 +22,9 @@ pipeline {
                 branch 'hopfhauer_29092025'
             }
 
-            middleVar = 'Variable von Middle'
+            environment {
+                middleVar = 'Variable von Middle'
+            }
 
             steps {
                 echo "${middleVar}"
