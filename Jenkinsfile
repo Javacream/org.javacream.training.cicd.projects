@@ -1,22 +1,56 @@
 pipeline {
     agent any
 
+    environment {
+
+        runTests = 'false' // bool flag to control stage 2
+    }
+
+
     stages {
-        stage('Hello World') {
+        stage('Build') {
             steps {
-                echo 'Hello'
-                echo 'World'
+                echo 'Starting Stage 1: Build'
+                
+                // Set condition to execute Stage 2
+                runTests = 'true'
+            }            
+        }
+
+        stage('Test') {
+            when {
+                expression
+                {
+                    return env.runTests == 'true'
+                }
+            }
+                        
+            steps {
+                echo 'Stage 1 was successful - ok!'
+                echo 'Starting Stage 2: Test'
             }
         }
-        stage('From git') {
+
+        stage('Deploy') {
             steps {
-                echo 'git git git'
+                echo 'Starting Stage 3: Deploying Software :)'
             }
         }
-        stage('From local change') {
-            steps {
-                echo 'local change'
-            }
+    }
+
+    post
+    {
+        always
+        {
+            echo 'Pipeline completed'
+        }
+        success
+        {
+            echo '=> success!'
+        }
+        failure
+        {
+            echo '=> failed!'
         }
     }
 }
