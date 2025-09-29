@@ -39,7 +39,7 @@ pipeline {
         stage('Deploy') {
             parallel
             {
-                stage ('Deplay Windows')
+                stage ('Deploy Windows')
                 {
                     steps 
                     {
