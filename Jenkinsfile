@@ -12,7 +12,7 @@ pipeline {
                 echo 'git git git'
             }
         }
-        stage('From and from local change') {
+        stage('From local change') {
             steps {
                 echo 'local change'
             }
