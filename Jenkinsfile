@@ -12,7 +12,7 @@ pipeline {
                 message = "Message for Stage 1"
             }
             steps {
-                echo '${message}'
+                echo ${message}
             }
         }
         stage('Stage 2') {
