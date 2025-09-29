@@ -8,11 +8,9 @@ pipeline {
 
     stages {
         stage('Stage 1') {
-            environment {
-                message = "Message for Stage 1"
-            }
+            message1 = "Message for Stage 1"
             steps {
-                echo ${message}
+                echo '${message1}'
             }
         }
         stage('Stage 2') {
