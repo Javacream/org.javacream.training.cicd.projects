@@ -12,7 +12,7 @@ pipeline {
       }
 
       steps{
-        localMessage = "local message"
+        localMessage = 'local message'
         echo 'Local Message: ${localMessage}'
         echo 'Stage Message: ${MESSAGE}'
         echo 'Global Message: ${MESSAGE_GLOBAL}'
@@ -22,6 +22,7 @@ pipeline {
     stage('Main Stage') {
       steps{
         echo 'Hello in Main Stage'
+        sh 'printenv'
       }
     }
 
