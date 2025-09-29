@@ -11,6 +11,7 @@ pipeline {
         stage('Board') {
             steps {
                 echo 'Release the parrots!'
+                echo 'What!?'
             }
         }
     }
