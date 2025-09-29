@@ -6,10 +6,6 @@ pipeline {
   }
 
   stages {
-    environment{
-      MESSAGE = "Hello Schwabe editing from Message VSC"
-    }
-
     stage('Hello') {
       environment{
         MESSAGE = "Hello Schwabe editing from Message VSC"
