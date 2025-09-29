@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Hello') {
       steps{
-        echo 'Hello from Schwabe GitHub'
+        echo 'Hello from Schwabe VSC'
       }
     }
   }
