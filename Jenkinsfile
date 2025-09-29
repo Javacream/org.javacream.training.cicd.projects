@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         stage('Hello') {
-            message = 'Hello stage'
+            message = "Hello stage"
             steps {
                 echo 'Hello Jenkins File'
                 echo 'Hello me hearties!'
