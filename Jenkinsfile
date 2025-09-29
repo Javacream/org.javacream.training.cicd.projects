@@ -10,10 +10,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Starting Stage 1: Build'
-                
-                // Set condition to execute Stage 2
-                runTests = 'true'
+                script
+                {
+                    echo 'Starting Stage 1: Build'
+                    
+                    // Set condition to execute Stage 2
+                    runTests = 'true'
+                }
             }            
         }
 
