@@ -10,18 +10,30 @@ pipeline {
         stage('Build') {
             steps
             {
-                echo "Starting Stage 1..."
-                echo "Test run: ${RUN_TESTS}"
-                ${RUN_TESTS} = 'true'
-                echo "Test run: ${RUN_TESTS}"
+                script {
+                    echo "Starting Stage 1..."
+                    echo "Test run: ${env.RUN_TESTS}"
+                    env.RUN_TESTS = 'true'
+                    echo "Test run: ${env.RUN_TESTS}"
+                }
             }            
         }
 
         stage('Test') {                       
             steps
             {
-                echo 'Stage 1 was successful - ok!'
-                echo 'Starting Stage 2: Test'
+                script {
+                    if (env.RUN_TESTS.toBoolean())
+                    {
+                        echo 'Stage 1 was successful - ok!'
+                        echo 'Starting Stage 2: Test'
+                    }
+                    else
+                    {
+                        echo 'Stage 2 failed!'
+                        echo 'No Tests executed...'
+                    }
+                }
             }
         }
 
