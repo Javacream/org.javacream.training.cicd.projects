@@ -1,12 +1,12 @@
 pipeline {
     agent any
 
-    globalVar = "Globaler Text"
+    globalVar = 'Globaler Text'
 
     stages {
         stage('Start') {
 
-            startVar = "Variable von Start"
+            startVar = 'Variable von Start'
 
             steps {
                 echo "${startVar}"
@@ -18,7 +18,7 @@ pipeline {
                 branch 'hopfhauer_29092025'
             }
 
-            middleVar = "Variable von Middle"
+            middleVar = 'Variable von Middle'
 
             steps {
                 echo "${middleVar}"
@@ -34,7 +34,7 @@ pipeline {
 
     post {
         always {
-            globalVar = "Ende"
+            globalVar = 'Ende'
             echo "${globalVar}"
             sh 'printenv'
         }
