@@ -23,7 +23,7 @@ pipeline {
         stage('Stage 3') {
             steps {
                 echo 'Stage 3'
-                sh 'printenv'   
+                sh 'printenv123'   
             }
         }
     }
