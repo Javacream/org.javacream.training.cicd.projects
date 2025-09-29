@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script
                 {
-                    echo 'Starting Stage 1: Build ${REPO_NAME}'
+                    echo "Starting Stage 1: Build ${REPO_NAME}"
                     
                     // Set condition to execute Stage 2
                     runTests = 'true'
