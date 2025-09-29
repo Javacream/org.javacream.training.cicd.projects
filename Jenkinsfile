@@ -13,6 +13,7 @@ pipeline {
 
       steps{
         var localMessage = "local message"
+        echo 'Local Message: ${localMessage}'
         echo 'Stage Message: ${MESSAGE}'
         echo 'Global Message: ${MESSAGE_GLOBAL}'
       }
