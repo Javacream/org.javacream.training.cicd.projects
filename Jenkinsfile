@@ -15,13 +15,12 @@ pipeline {
         var localMessage = "local message"
         echo 'Stage Message: ${MESSAGE}'
         echo 'Global Message: ${MESSAGE_GLOBAL}'
-        sh 'printenv'
       }
     }
 
-    stage('Optional Stage') {
+    stage('Main Stage') {
       steps{
-        sh 'printenv'
+        echo 'Hello in Main Stage'
       }
     }
 
