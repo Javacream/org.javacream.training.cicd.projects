@@ -16,7 +16,7 @@ pipeline {
                     //echo "Starting Stage 1: Build ${REPO_NAME}"
                     
                     // Set condition to execute Stage 2
-                    env.runTests = 'false'
+                    env.runTests = 'true'
                 }
             }            
         }
