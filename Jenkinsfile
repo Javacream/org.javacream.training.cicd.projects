@@ -8,7 +8,7 @@ pipeline {
                 echo 'Hello me hearties!'
             }
         }
-        stage('Entern') {
+        stage('Board') {
             steps {
                 echo 'Release the parrots!'
             }
