@@ -12,7 +12,7 @@ pipeline {
             {
                 echo "Starting Stage 1..."
                 echo "Test run: ${RUN_TESTS}"
-                env.RUN_TESTS = 'true'
+                ${RUN_TESTS} = 'true'
                 echo "Test run: ${RUN_TESTS}"
             }            
         }
