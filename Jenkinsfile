@@ -18,6 +18,11 @@ pipeline {
     }
 
     stage('Main Stage') {
+      when{
+        expression{
+          return !MESSAGE_GLOBAL.contains('Schwabe');
+        }
+      }
       steps{
         echo 'Hello in Main Stage'
         sh 'printenv'
@@ -28,7 +33,11 @@ pipeline {
       environment{
         MESSAGE_END = "Hello Schwabe editing from Message VSC"
       }
-
+      when{
+        expression{
+          return MESSAGE_GLOBAL.contains('Schwabe');
+        }
+      }
       steps{
         echo "Global Message: ${MESSAGE_GLOBAL}"
         echo "End Message: ${MESSAGE_END}"
