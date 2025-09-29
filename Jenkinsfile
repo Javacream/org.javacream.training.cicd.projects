@@ -1,35 +1,36 @@
 pipeline {
     agent any
 
-    environment {
-
-        runTests = 'false' // bool flag to control stage 2
+    environment
+    {
+        runTests = 0 // bool flag to control stage 2
     }
 
     stages {
-
         stage('Build') {
-
-            steps {
+            steps
+            {
                 script
                 {
                     //echo "Starting Stage 1: Build ${REPO_NAME}"
                     
                     // Set condition to execute Stage 2
-                    env.runTests = 'true'
+                    env.runTests = 1
                 }
             }            
         }
 
         stage('Test') {
-            when {
+            when
+            {
                 expression
                 {
-                    env.runTests == 'true'
+                    return env.runTests == 1
                 }
             }
                         
-            steps {
+            steps
+            {
                 echo 'Stage 1 was successful - ok!'
                 echo 'Starting Stage 2: Test'
             }
