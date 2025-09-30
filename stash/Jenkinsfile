@@ -1,0 +1,27 @@
+pipeline {
+  agent none
+
+  stages{
+    stage('Java Agent') {
+      agent {label "java"}
+      steps{
+        sh 'echo Goodbye > content.txt'
+        sh 'ls'
+        stash name: 'Content', includes: 'content.txt'
+      }
+    }
+    stage('Docker Agent') {
+      agent {label "docker"}
+      steps{
+        sh 'ls'
+        unstash name: 'Content'
+        sh 'cat content.txt'        
+      }
+    }
+  }
+  post{
+    always{
+      cleanWs()
+    }
+  }
+}
