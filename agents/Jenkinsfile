@@ -1,0 +1,37 @@
+pipeline {
+  agent none
+
+  stages {
+    stage('Agent Java') {
+      agent {label "java"}
+      steps{
+        echo "In Java Agent 1"
+        sh 'uname -a'
+      }
+    }
+
+    stage('Agent Docker') {
+      agent {label "docker"}
+      steps{
+        echo 'In Docker Agent 2'
+        sh 'uname -a'
+      }
+    }
+
+    stage('Agent Linux 1') {
+      agent {label "linux"}
+      steps{
+        echo 'In first Linux Agent'
+        sh 'uname -a'
+      }
+    }
+
+    stage('Agent Linux 2') {
+      agent {label "linux"}
+      steps{
+        echo 'In second Linux Agent'
+        sh 'uname -a'
+      }
+    }
+  }
+}
