@@ -5,12 +5,14 @@ pipeline {
             agent {label "linux&&java"}
             steps {
                 echo 'Hello World'
+                sh 'uname -a'
             }
         }
         stage('Stage 2') {
             agent {label "linux&&docker"}
             steps {
                 sh 'ls -l'
+                sh 'uname -a'
             }
         }
         stage('Stage 3') {
