@@ -7,8 +7,6 @@ pipeline {
         stage('Stage 1') {
             steps {
                 echo "MY_VAR = ${MY_VAR}"
-                MY_VAR = "CHANGED"
-                echo "MY_VAR = ${MY_VAR}"
 
             }
         }
