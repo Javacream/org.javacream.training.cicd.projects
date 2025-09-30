@@ -13,12 +13,8 @@ pipeline {
                 message1 = "Message for Stage 1"
             }
             steps {
-                echo '${message1}'
-                echo '${env.message1}'
-                echo '${g_message}'
-                echo '${env.g_message}'
+                echo "${message1}"
                 echo "${g_message}"
-                echo "${env.g_message}"
             }
         }
         stage('Stage 2') {
