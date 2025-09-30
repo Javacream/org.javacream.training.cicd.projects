@@ -17,6 +17,8 @@ pipeline {
                 echo '${env.message1}'
                 echo '${g_message}'
                 echo '${env.g_message}'
+                echo "${g_message}"
+                echo "${env.g_message}"
             }
         }
         stage('Stage 2') {
