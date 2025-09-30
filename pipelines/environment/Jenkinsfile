@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Stage 3') {
             steps {
-                echo "MY_VAR = ${env.MY_VAR}"
+                echo "MY_VAR = ${MY_VAR}"
             }
         }
     }
