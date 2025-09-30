@@ -2,8 +2,8 @@ pipeline {
     agent any
     environment {
         MY_ENV_VAR = 'INITIAL'
+        MY_VAR = 'INITIAL MY VAR'
     }
-    MY_VAR = 'INITIAL MY VAR'
     stages {
         stage('Stage 1') {
             steps {
