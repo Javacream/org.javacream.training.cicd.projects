@@ -20,12 +20,13 @@ pipeline {
 
     stage('Parallel Linux Agents') {
       parallel {
-        stage('First Linux Agent')
+        stage('First Linux Agent') {
           agent {label "linux"}
           steps{
             echo 'In first Linux Agent'
             sh 'uname -a'
           }
+        }
         stage('Second Linux Agent') {
           agent {label "linux"}
           steps{
