@@ -9,13 +9,11 @@ pipeline {
     stages {
         stage('Build') {
             steps
-            {
-                script {
-                    echo "Starting Stage 1..."
-                    echo "Test run: ${env.RUN_TESTS}"
-                    env.RUN_TESTS = 'true'
-                    echo "Test run: ${env.RUN_TESTS}"
-                }
+            {                
+                echo "Starting Stage 1..."
+                echo "Test run: ${env.RUN_TESTS}"
+                env.RUN_TESTS = 'true'
+                echo "Test run: ${env.RUN_TESTS}"
             }            
         }
 
@@ -23,6 +21,8 @@ pipeline {
             steps
             {
                 script {
+                    // if is untypical => used when {expression{}} instead
+                    // too much programming here!
                     if (env.RUN_TESTS.toBoolean())
                     {
                         echo 'Stage 1 was successful - ok!'
