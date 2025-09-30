@@ -3,6 +3,8 @@ pipeline{
     stages{
         stage('Developer Build'){
             steps{
+                echo 'staring developer build'
+                sh 'ls'
                 sh 'mvn deploy'
             }
         }
