@@ -8,7 +8,7 @@ pipeline {
             }
         }
         stage('Stage 2') {
-            agent {label "linux&&docker"}
+            agent {label "linux&&docker&&pro"}
             steps {
                 sh 'ls -l'
             }
