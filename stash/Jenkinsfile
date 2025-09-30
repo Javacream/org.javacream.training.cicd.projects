@@ -5,9 +5,14 @@ pipeline {
     stage('Java Agent') {
       agent {label "java"}
       steps{
-        sh 'echo Goodbye > content.txt'
+        sh 'echo Hello from Java Agent > content.txt'
         sh 'ls'
         stash name: 'Content', includes: 'content.txt'
+      }
+      post{
+        always{
+          cleanWs()
+        }
       }
     }
     stage('Docker Agent') {
@@ -17,11 +22,11 @@ pipeline {
         unstash name: 'Content'
         sh 'cat content.txt'        
       }
-    }
-  }
-  post{
-    always{
-      cleanWs()
+      post{
+        always{
+          cleanWs()
+        }
+      }
     }
   }
 }
