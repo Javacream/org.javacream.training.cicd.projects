@@ -1,0 +1,23 @@
+pipeline {
+    agent none
+    stages {
+        stage('Stage 1') {
+            agent {label "linux&&java"}
+            steps {
+                sh "echo Hello build ${BUILD_NUMBER} > content.txt"
+                sh 'ls'
+                stash name: 'Content', includes: 'content.txt'
+            }
+        }
+        stage('Stage 2') {
+            agent {label "linux&&docker"}
+            steps {
+                sh 'ls'
+                sh 'cat content.txt'
+                unstash name: 'Content'
+                sh 'cat content.txt'
+
+            }
+        }
+    }
+}
