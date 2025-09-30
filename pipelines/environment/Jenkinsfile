@@ -1,11 +1,13 @@
 pipeline {
     agent any
     environment {
-        MY_VAR = 'INITIAL'
+        MY_ENV_VAR = 'INITIAL'
     }
+    MY_VAR = 'INITIAL MY VAR'
     stages {
         stage('Stage 1') {
             steps {
+                echo "MY_ENV_VAR = ${MY_ENV_VAR}"
                 echo "MY_VAR = ${MY_VAR}"
 
             }
