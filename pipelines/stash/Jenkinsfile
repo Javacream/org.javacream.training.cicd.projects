@@ -6,11 +6,14 @@ pipeline {
             steps {
                 sh 'echo Hello > content.txt'
                 sh 'ls'
+                stash name: 'Content', includes: 'content.txt'
             }
         }
         stage('Stage 2') {
             agent {label "linux&&docker"}
             steps {
+                sh 'ls'
+                unstash name: 'Content'
                 sh 'ls'
             }
         }
