@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+    environment {
+        MY_VAR = 'INITIAL'
+    }
+    stages {
+        stage('Stage 1') {
+            steps {
+                echo "MY_VAR = ${MY_VAR}"
+                MY_VAR = "CHANGED"
+                echo "MY_VAR = ${MY_VAR}"
+
+            }
+        }
+        stage('Stage 2') {
+            steps {
+                script {
+                    env.MY_VAR = 'CHANGED VALUE'
+                }
+            }
+        }
+        stage('Stage 3') {
+            steps {
+                echo "MY_VAR = ${MY_VAR}"
+            }
+        }
+    }
+}
+
+
