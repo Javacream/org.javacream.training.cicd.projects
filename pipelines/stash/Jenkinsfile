@@ -1,0 +1,18 @@
+pipeline {
+    agent none
+    stages {
+        stage('Stage 1') {
+            agent {label "linux&&java"}
+            steps {
+                sh 'echo Hello > content.txt'
+                sh 'ls'
+            }
+        }
+        stage('Stage 2') {
+            agent {label "linux&&docker"}
+            steps {
+                sh 'ls'
+            }
+        }
+    }
+}
