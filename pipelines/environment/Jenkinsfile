@@ -13,7 +13,7 @@ pipeline {
         stage('Stage 2') {
             steps {
                 script {
-                    env.MY_VAR = 'CHANGED VALUE'
+                    MY_VAR = 'CHANGED VALUE'
                 }
             }
         }
