@@ -9,11 +9,14 @@ pipeline {
     stages {
         stage('Build') {
             steps
-            {                
-                echo "Starting Stage 1..."
-                echo "Test run: ${env.RUN_TESTS}"
-                env.RUN_TESTS = 'true'
-                echo "Test run: ${env.RUN_TESTS}"
+            {         
+                script 
+                {       
+                    echo "Starting Stage 1..."
+                    echo "Test run: ${env.RUN_TESTS}"
+                    env.RUN_TESTS = 'true'
+                    echo "Test run: ${env.RUN_TESTS}"
+                }
             }            
         }
 
