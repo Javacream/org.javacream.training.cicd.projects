@@ -18,19 +18,21 @@ pipeline {
       }
     }
 
-    stage('Agent Linux 1') {
-      agent {label "linux"}
-      steps{
-        echo 'In first Linux Agent'
-        sh 'uname -a'
-      }
-    }
-
-    stage('Agent Linux 2') {
-      agent {label "linux"}
-      steps{
-        echo 'In second Linux Agent'
-        sh 'uname -a'
+    stage('Parallel Linux Agents') {
+      parallel {
+        stage('First Linux Agent')
+          agent {label "linux"}
+          steps{
+            echo 'In first Linux Agent'
+            sh 'uname -a'
+          }
+        stage('Second Linux Agent') {
+          agent {label "linux"}
+          steps{
+            echo 'In second Linux Agent'
+            sh 'uname -a'
+          }
+        }
       }
     }
   }
