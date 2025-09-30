@@ -13,7 +13,7 @@ pipeline {
             agent {label "linux&&docker"}
             steps {
                 sh 'ls'
-                //sh 'cat content.txt'
+                sh 'cat content.txt'
                 unstash name: 'Content'
                 sh 'ls'
                 sh 'cat content.txt'
