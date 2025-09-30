@@ -1,5 +1,5 @@
 pipeline{
-    agent {docker {image 'maven'}}
+    agent {docker {image 'javacream/maven:2.0'}}
     stages{
         stage('Developer Build'){
             steps{
