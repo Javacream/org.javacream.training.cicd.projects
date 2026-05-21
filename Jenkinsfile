@@ -74,7 +74,7 @@ pipeline {
                 label 'java'
             }
             steps {
-                unsash('mystash')
+                unstash('mystash')
                 sh 'ls -lha'
                 sh 'cat "${FILE1}"'
             }
