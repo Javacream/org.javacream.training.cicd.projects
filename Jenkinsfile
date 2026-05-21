@@ -19,21 +19,15 @@ pipeline {
                         sh 'mvn -version'
                     }
                 }
-        }
+          }
     }
+}
+post {
+    success {
+        echo 'Pipeline erfolgreich'
     }
-
-    post {
-        success {
-            echo 'Pipeline erfolgreich'
-        }
-
-        failure {
-            echo 'Pipeline fehlgeschlagen'
-        }
+    failure {
+        echo 'Pipeline fehlgeschlagen'
     }
-
-
-
-    
+}
 }
