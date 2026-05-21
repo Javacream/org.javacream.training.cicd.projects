@@ -33,12 +33,9 @@ pipeline {
                     }
                  }
                 }
-                stage('Environment') {
-                    environment { 
-                        AN_ACCESS_KEY = credentials('my-predefined-secret-text') 
-                    }
+                stage('Environment') {                
                     steps {
-                        sh 'printenv'
+                        echo " ${GIT_AUTHOR_NAME}"
                     }
                 }
             }
