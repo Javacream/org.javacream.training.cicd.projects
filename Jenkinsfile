@@ -1,7 +1,7 @@
 pipeline {
     agent none 
     parameters {
-        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+        choice(name: 'CHOICE', choices: ['production', 'test', 'development'], description: 'env choice')
     }
     environment { 
         DB_ENGINE    = 'sqlite'
@@ -42,7 +42,7 @@ pipeline {
                     when {
                         allOf {
                             branch 'production'
-                            environment name: 'DEPLOY_TO', value: 'production'
+                            environment name: 'CHOICE', value: 'production'
                         }
                     }
                     steps {
