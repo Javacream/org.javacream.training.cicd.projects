@@ -25,6 +25,11 @@ pipeline {
                     steps {
                         sh 'mvn -version'
                     }
+                }    
+                post { 
+                       always { 
+                            echo 'post: always in Java'
+                        }
                 }
             }
         }
@@ -34,5 +39,13 @@ pipeline {
                 echo 'finish sequential'
             }
         }
+    }
+    post { 
+            success { 
+                echo 'post success in pipeline'
+            }
+            failure { 
+                echo 'post failure in pipeline'
+            }
     }
 }
