@@ -21,7 +21,7 @@ pipeline {
                     }
                     steps {
                         echo 'Kuckuck, fiep fiep!'
-                        
+                        echo env.BRANCH_NAME
                     }
                 }
             }
