@@ -1,36 +1,11 @@
 pipeline {
-    agent none
+    agent any
 
     stages {
-        stage('Parallel Stage') {
-            parallel {
-                stage('Python') {
-                   agent {
-                        label 'python'
-                    }
-                    steps {
-                        sh 'python --version'
-                    }
-                }
-                stage('Java') {
-                    agent {
-                        label 'java'
-                    }
-                    steps {
-                        sh 'java --version'
-                        sh 'mvn --version'
-                    }
-                }
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
             }
         }
     }
-
-    post {
-        success {
-            echo 'SUCCESS'
-        }
-        failure {
-            echo 'FAILURE'
-        }
-    }   
 }
