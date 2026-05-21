@@ -13,7 +13,7 @@ pipeline {
                 echo env.HELLO
                 sh 'ls -l'
                 sh 'pwd'
-                stash include: '*', name: 'Files'
+                stash includes: '*', name: 'Files'
             }
         }
         stage('Kuckuck') {
