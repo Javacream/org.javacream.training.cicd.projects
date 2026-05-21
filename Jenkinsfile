@@ -51,8 +51,8 @@ pipeline {
             steps {
                 echo "${GREETING}" > "${FILE1}"
                 echo "${GOODBYE}" > "${FILE2}"
-                cat "${FILE1}"
-                cat "${FILE2}"
+                sh cat "${FILE1}"
+                sh cat "${FILE2}"
                 stash "${FILE1}"
             }
         }
@@ -61,13 +61,15 @@ pipeline {
             agent any
             steps {
                 unsash "${FILE1}"
-                if (fileExists("${FILE1}")) {
-                    echo "SUCCESS: ${FILE1} exists"
+                script {
+                    if (fileExists("${FILE1}")) {
+                        echo "SUCCESS: ${FILE1} exists"
+                    }
+                    if (fileExists("${FILE2}")) {
+                        echo "FAILURE: ${FILE2} exists"
+                    }
                 }
-                if (fileExists("${FILE2}")) {
-                    echo "FAILURE: ${FILE2} exists"
-                }
-                cat file1.txt
+                sh cat "${FILE1}"
             }
         }
     }
