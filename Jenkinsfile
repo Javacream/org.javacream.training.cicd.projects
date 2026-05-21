@@ -23,8 +23,12 @@ pipeline {
                     agent { label 'java' }
                     steps { echo 'Hallo MAVEN'
                         sh 'mvn -version'
-                        
                     }
+                 post { 
+                    always { 
+                        echo 'I will always say Hello again!'
+                    }
+                 }
                 }
             }
         }
