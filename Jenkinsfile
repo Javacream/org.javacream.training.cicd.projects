@@ -18,13 +18,5 @@ pipeline {
                 sh 'mvn -version'
             }
         }
-        stage('Wrong Python') {
-            agent {
-                label 'java'
-            }
-            steps {
-                sh 'python -V'
-            }
-        }
     }
 }
