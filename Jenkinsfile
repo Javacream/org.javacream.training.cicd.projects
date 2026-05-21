@@ -13,7 +13,8 @@ pipeline {
                 echo env.HELLO
                 sh 'ls -l'
                 sh 'pwd'
-                stash includes: '*', name: 'Files'
+                sh 'touch testfile'
+                stash includes: 'testfile', name: 'Files'
             }
         }
         stage('Kuckuck') {
@@ -24,8 +25,9 @@ pipeline {
                 echo 'Kuckuck, fiep fiep!'
                 echo env.GIT_BRANCH
                 echo env.BUILD_TAG
+                sh 'ls -l'
                 unstash 'Files'
-                unstash 'Test'
+                sh 'ls -l'
             }
         }
     }
