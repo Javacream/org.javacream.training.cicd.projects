@@ -25,12 +25,26 @@ pipeline {
                 }
           }
     }
-        stage ('Sequential Stage') {
+        stage ('Stash') {
             agent {
                 label 'generic'
             }
             steps {
-                echo 'Sequential Stage'
+                echo 'Stash'
+                echo 'Inhalt von foo.txt' >foo.txt
+                echo 'Inhalt von bar.txt' >bar.txt
+                stash foo.txt
+            }
+        }
+        stage ('Unstash') {
+            agent {
+                label 'generic'
+            }
+            steps {
+                echo 'Unstash'
+                unstash foo.txt
+                cat foo.txt
+                cat bar.txt
             }
         }
 }
