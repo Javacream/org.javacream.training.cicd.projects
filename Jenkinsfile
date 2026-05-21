@@ -4,7 +4,7 @@ pipeline {
         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
     }
     environment { 
-        CC = 'clang'
+        CC = 'TAN'
     }
     stages {
         stage('Print was aus ...') {
@@ -35,7 +35,8 @@ pipeline {
                 }
                 stage('Environment') {                
                     steps {
-                        echo " ${GIT_AUTHOR_NAME}"
+                        echo "CC"
+                        //echo " ${GIT_AUTHOR_NAME}"
                     }
                 }
             }
