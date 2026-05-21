@@ -1,13 +1,14 @@
 pipeline {
     agent none
-
+    
     environment{
         GREETING = 'Hello World'
-        GOODBYE = "Bye-Bye World"
+        GOODBYE = 'Bye-Bye World'
     }
-
+    
     stages {
         stage ('Sequential START') {
+            agent any
             steps {
                 echo "${GREETING}"
             }
@@ -23,6 +24,7 @@ pipeline {
                         sh 'python --version'
                     }
                 }
+                
                 stage('Java') {
                     agent {
                         label 'java'
@@ -34,14 +36,15 @@ pipeline {
                 }
             }
         }
-
+        
         stage ('Sequential END') {
+            agent any
             steps {
                 echo "${GOODBYE}"
             }
         }
     }
-
+    
     post {
         success {
             echo 'SUCCESS'
