@@ -42,7 +42,7 @@ pipeline {
                     when {
                         allOf {
                             branch 'production'
-                            environment name: 'CHOICE', value: 'production'
+                            environment name: 'CHOICE', value: 'production' 
                         }
                     }
                     steps {
