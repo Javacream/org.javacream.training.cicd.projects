@@ -3,6 +3,9 @@ pipeline {
     parameters {
         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
     }
+    environment { 
+        CC = 'clang'
+    }
     stages {
         stage('Print was aus ...') {
             parallel {
@@ -29,6 +32,14 @@ pipeline {
                         echo 'I will always say Hello again!'
                     }
                  }
+                }
+                stage('Environment') {
+                    environment { 
+                        AN_ACCESS_KEY = credentials('my-predefined-secret-text') 
+                    }
+                    steps {
+                        sh 'printenv'
+                    }
                 }
             }
         }
