@@ -33,7 +33,7 @@ pipeline {
                 echo 'Stash'
                 echo 'Inhalt von foo.txt' >foo.txt
                 echo 'Inhalt von bar.txt' >bar.txt
-                stash foo.txt
+                stash includes: 'foo.txt' name: 'foo'
             }
         }
         stage ('Unstash') {
@@ -42,7 +42,7 @@ pipeline {
             }
             steps {
                 echo 'Unstash'
-                unstash foo.txt
+                unstash 'foo'
                 cat foo.txt
                 cat bar.txt
             }
