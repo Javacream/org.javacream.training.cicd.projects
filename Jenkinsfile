@@ -1,8 +1,5 @@
 pipeline {
     agent none 
-    parameters {
-        choice(name: 'CHOICE', choices: ['production', 'test', 'development'], description: 'env choice')
-    }
     environment { 
         DB_ENGINE    = 'sqlite'
     }
@@ -40,9 +37,8 @@ pipeline {
                 }
                 stage('Example Deploy') {
                     when {
-                        allOf {
-                            branch 'production'
-                            environment name: 'CHOICE', value: 'production' 
+                        parameters {
+                            choice(name: 'CHOICE', choices: ['production', 'test', 'development'], description: 'env choice')
                         }
                     }
                     steps {
