@@ -1,5 +1,8 @@
 pipeline {
     agent none 
+   parameters {
+                choice(name: 'CHOICE', choices: ['production', 'test', 'development'], description: 'env choice')
+   }
     environment { 
         DB_ENGINE    = 'sqlite'
     }
@@ -35,10 +38,10 @@ pipeline {
                         echo "${DB_ENGINE}"                        
                     }
                 }
-                stage('Example Deploy') {
+                stage('Example Deploy') {                    
                     when {
-                        parameters {
-                            choice(name: 'CHOICE', choices: ['production', 'test', 'development'], description: 'env choice')
+                        expression { 
+                            params.choices == 'production'
                         }
                     }
                     steps {
