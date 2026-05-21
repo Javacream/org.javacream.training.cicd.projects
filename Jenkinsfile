@@ -4,7 +4,7 @@ pipeline {
         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
     }
     environment { 
-        CC = 'TAN'
+        DB_ENGINE    = 'sqlite'
     }
     stages {
         stage('Print was aus ...') {
@@ -35,8 +35,7 @@ pipeline {
                 }
                 stage('Environment') {                
                     steps {
-                        echo "${CC}"
-                        echo $GIT_AUTHOR_NAME
+                        echo "${DB_ENGINE}"                        
                     }
                 }
             }
