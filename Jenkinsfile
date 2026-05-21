@@ -38,8 +38,8 @@ pipeline {
         stage('Finish sequential') {
             agent any
             steps {
-                echo "finish sequential on branch ${env.JOB_NAME}"
-                sh 'echo "sequential on branch $JOB_NAME"'
+                echo "finish sequential on job ${env.JOB_NAME}"
+                sh 'echo "sequential on job $JOB_NAME"'
             }
         }
     }
