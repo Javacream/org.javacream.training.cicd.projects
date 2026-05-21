@@ -11,6 +11,7 @@ pipeline {
                         label 'python'
                     }
                     steps {
+                        echo $MESSAGE
                         sh 'python -V'
                     }
                 }
