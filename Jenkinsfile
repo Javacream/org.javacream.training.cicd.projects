@@ -1,10 +1,31 @@
 pipeline {
-    agent any
-
+    agent none 
+    parameters {
+        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+    }
     stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello Jenkins File'
+        stage('Print was aus ...') {
+            parallel {
+                stage('--001---') {
+                    agent { label 'java' }
+                    steps { echo 'Hallo JAVA' 
+                        sh 'java -version'
+                    }
+                }
+                stage('--002---') {
+                    agent { label 'python' }
+                    steps { echo 'Hallo PYTHON' 
+                        sh 'python --version'
+                        echo "Choice: ${params.CHOICE}"
+                    }
+                }
+                stage('--003---') {
+                    agent { label 'java' }
+                    steps { echo 'Hallo MAVEN'
+                        sh 'mvn -version'
+                        
+                    }
+                }
             }
         }
     }
