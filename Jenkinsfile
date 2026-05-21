@@ -22,6 +22,7 @@ pipeline {
                     steps {
                         echo 'Kuckuck, fiep fiep!'
                         echo env.GIT_BRANCH
+                        echo env.BUILD_TAG
                     }
                 }
             }
