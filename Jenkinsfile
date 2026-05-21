@@ -26,6 +26,38 @@ pipeline {
                 }
           }
     }
+    stage('Test stash') {
+            agent {
+                  label 'java'
+            }
+
+            steps {
+                sh 'mkdir -p build'
+                sh 'echo "Hallo Jenkins" > build/output.txt'
+
+                stash(
+                    name: 'build-artifacts',
+                    includes: 'build/**'
+                )
+            }
+        }
+        stage('Test unstash') {
+            agent {
+                 label 'java'
+            }
+
+            steps {
+                unstash 'build-artifacts'
+
+                sh 'cat build/output.txt'
+                sh 'echo "Deployment erfolgreich"'
+            }
+        }
+    }
+
+
+
+        
 }
 post {
     success {
