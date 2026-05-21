@@ -47,28 +47,35 @@ pipeline {
         }
 
         stage ('Create Stash') {
-            agent any
+            agent {
+                label 'python'
+            }
             steps {
-                echo "${GREETING}" > "${FILE1}"
-                echo "${GOODBYE}" > "${FILE2}"
-                sh cat "${FILE1}"
-                sh cat "${FILE2}"
-                stash "${FILE1}"
+                writeFile(
+                    file: "${FILE1}",
+                    text: "${GREETING}"
+                )
+                writeFile(
+                    file: "${FILE2}",
+                    text: "${GOODBYE}"
+                )
+                sh 'ls -lha'
+                sh 'cat "${FILE1}"'
+                sh 'cat "${FILE2}"'
+                stash (
+                    name: 'mystash',
+                    includes: "${FILE1}"
+                )
             }
         }
 
         stage ('Read Stash') {
-            agent any
+            agent {
+                label 'java'
+            }
             steps {
-                unsash "${FILE1}"
-                script {
-                    if (fileExists("${FILE1}")) {
-                        echo "SUCCESS: ${FILE1} exists"
-                    }
-                    if (fileExists("${FILE2}")) {
-                        echo "FAILURE: ${FILE2} exists"
-                    }
-                }
+                unsash('mystash')
+                sh 'ls -lha'
                 sh cat "${FILE1}"
             }
         }
