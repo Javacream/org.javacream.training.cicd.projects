@@ -8,7 +8,7 @@ pipeline {
                 echo 'start sequential'
             }
         }
-        stage('Parallel eecutions'){
+        stage('Parallel executions'){
             parallel{
                 stage('Hello Python') {
                     agent {
