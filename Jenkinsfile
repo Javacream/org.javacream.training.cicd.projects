@@ -39,6 +39,8 @@ pipeline {
                     }
                     steps {
                         sh 'mvn -version'
+                        unstash('data')
+                        sh 'ls'
                     }
                     post { 
                         always { 
@@ -53,8 +55,6 @@ pipeline {
             steps {
                 echo "finish sequential on job ${env.JOB_NAME}"
                 sh 'echo "sequential on job $JOB_NAME"'
-                unstash('data')
-                sh 'ls'
             }
         }
     }
