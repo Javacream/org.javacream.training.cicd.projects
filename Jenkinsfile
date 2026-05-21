@@ -1,5 +1,8 @@
 pipeline {
     agent none
+    environment { // accessible to all stages
+        HELLO = 'WORLD'
+    }
     stages {
         stage('parallel') {
             parallel {
@@ -9,6 +12,7 @@ pipeline {
                     }
                     steps {
                         echo 'Hello World'
+                        echo env.HELLO
                     }
                 }
                 stage('Kuckuck') {
@@ -17,6 +21,7 @@ pipeline {
                     }
                     steps {
                         echo 'Kuckuck, fiep fiep!'
+                        
                     }
                 }
             }
