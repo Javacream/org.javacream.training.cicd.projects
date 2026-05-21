@@ -11,7 +11,7 @@ pipeline {
                         label 'python'
                     }
                     steps {
-                        echo $MESSAGE
+                        echo env.MESSAGE
                         sh 'python -V'
                     }
                 }
