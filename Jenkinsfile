@@ -1,5 +1,9 @@
 pipeline {
     agent none
+    environment { 
+        CC = 'clang'
+        VERSION = "1.0"
+    }
     stages {
         stage('Parallel Stage') {
             parallel {
@@ -8,6 +12,7 @@ pipeline {
                         label 'python'
                     }
                     steps {
+                        echo "Version ${VERSION}"
                         sh 'python -V'
                     }
                 }
