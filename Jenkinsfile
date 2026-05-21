@@ -36,7 +36,7 @@ pipeline {
                 stage('Environment') {                
                     steps {
                         echo "${CC}"
-                        echo env.GIT_AUTHOR_NAME
+                        echo $GIT_AUTHOR_NAME
                     }
                 }
             }
