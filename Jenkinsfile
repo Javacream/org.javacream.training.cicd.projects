@@ -25,12 +25,12 @@ pipeline {
                     steps {
                         sh 'mvn -version'
                     }
+                    post { 
+                        always { 
+                                echo 'post: always in Java'
+                            }
+                    }
                 }    
-                post { 
-                       always { 
-                            echo 'post: always in Java'
-                        }
-                }
             }
         }
         stage('Finish sequential') {
