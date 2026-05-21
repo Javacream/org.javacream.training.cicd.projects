@@ -4,6 +4,8 @@ pipeline {
     environment{
         GREETING = 'Hello World'
         GOODBYE = 'Bye-Bye World'
+        FILE1 = 'file1.txt'
+        FILE2 = 'file2.txt'
     }
     
     stages {
@@ -41,6 +43,31 @@ pipeline {
             agent any
             steps {
                 echo "${GOODBYE}"
+            }
+        }
+
+        stage ('Create Stash') {
+            agent any
+            steps {
+                echo "${GREETING}" > "${FILE1}"
+                echo "${GOODBYE}" > "${FILE2}"
+                cat "${FILE1}"
+                cat "${FILE2}"
+                stash "${FILE1}"
+            }
+        }
+
+        stage ('Read Stash') {
+            agent any
+            steps {
+                unsash "${FILE1}"
+                if (fileExists("${FILE1}")) {
+                    echo "SUCCESS: ${FILE1} exists"
+                }
+                if (fileExists("${FILE2}")) {
+                    echo "FAILURE: ${FILE2} exists"
+                }
+                cat file1.txt
             }
         }
     }
