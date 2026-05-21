@@ -1,10 +1,20 @@
 pipeline {
-    agent any
-
+    agent none
     stages {
         stage('Hello') {
+            agent {
+                label 'kr-test-agent'
+            }
             steps {
-                echo 'Hello Jenkins File'
+                echo 'Hello World'
+            }
+        }
+        stage('Kuckuck') {
+            agent {
+                label 'python'
+            }
+            steps {
+                echo 'Kuckuck, fiep fiep!'
             }
         }
     }
