@@ -25,8 +25,13 @@ pipeline {
           }
     }
         stage ('Sequential Stage') {
-                    echo 'Sequential Stage'
-                }
+            agent {
+                label 'generic'
+            }
+            steps {
+                echo 'Sequential Stage'
+            }
+        }
 }
 post {
     success {
