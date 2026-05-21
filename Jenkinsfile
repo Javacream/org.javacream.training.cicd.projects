@@ -1,11 +1,13 @@
 pipeline {
     agent none
-
+    environment{
+        MESSAGE = 'start sequential'
+    }
     stages {
         stage('Start sequential') {
             agent any
             steps {
-                echo 'start sequential'
+                echo '$MESSAGE'
             }
         }
         stage('Parallel executions'){
@@ -36,7 +38,7 @@ pipeline {
         stage('Finish sequential') {
             agent any
             steps {
-                echo 'finish sequential'
+                echo 'finish sequential on branch $BRANCH_NAME'
             }
         }
     }
