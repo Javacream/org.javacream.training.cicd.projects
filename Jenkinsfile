@@ -1,5 +1,8 @@
 pipeline {
     agent none
+    environment {
+        MESSAGE = 'Start parallel stage'
+    }    
     stages {
         stage('Parallel Stage') {
             parallel {
@@ -21,6 +24,9 @@ pipeline {
                 }
           }
     }
+        stage ('Sequential Stage') {
+                    echo 'Sequential Stage'
+                }
 }
 post {
     success {
