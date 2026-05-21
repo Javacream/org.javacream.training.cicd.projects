@@ -1,22 +1,20 @@
 pipeline {
     agent none
-    stages {
-        parallel {
-            stage('Hello') {
-                agent {
-                    label 'kr-test-agent'
-                }
-                steps {
-                    echo 'Hello World'
-                }
+    parallel {
+        stage('Hello') {
+            agent {
+                label 'kr-test-agent'
             }
-            stage('Kuckuck') {
-                agent {
-                    label 'python'
-                }
-                steps {
-                    echo 'Kuckuck, fiep fiep!'
-                }
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('Kuckuck') {
+            agent {
+                label 'python'
+            }
+            steps {
+                echo 'Kuckuck, fiep fiep!'
             }
         }
     }
