@@ -76,7 +76,7 @@ pipeline {
             steps {
                 unsash('mystash')
                 sh 'ls -lha'
-                sh cat "${FILE1}"
+                sh 'cat "${FILE1}"'
             }
         }
     }
