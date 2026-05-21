@@ -54,11 +54,6 @@ pipeline {
             }
         }
     }
-
-
-
-        
-}
 post {
     success {
         echo 'Pipeline erfolgreich'
