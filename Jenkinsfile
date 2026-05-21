@@ -2,20 +2,34 @@ pipeline {
     agent none
 
     stages {
-        stage('Hello Python') {
-            agent {
-                label 'python'
-            }
+        stage('Start sequential') {
+            agent any
             steps {
-                sh 'python -V'
+                echo 'start sequential'
             }
         }
-        stage('Hello Java') {
-            agent {
-                label 'java'
+        parallel{
+            stage('Hello Python') {
+                agent {
+                    label 'python'
+                }
+                steps {
+                    sh 'python -V'
+                }
             }
+            stage('Hello Java') {
+                agent {
+                    label 'java'
+                }
+                steps {
+                    sh 'mvn -version'
+                }
+            }
+        }
+        stage('Finish sequential') {
+            agent any
             steps {
-                sh 'mvn -version'
+                echo 'finish sequential'
             }
         }
     }
