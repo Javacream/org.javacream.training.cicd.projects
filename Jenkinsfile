@@ -8,21 +8,23 @@ pipeline {
                 echo 'start sequential'
             }
         }
-        parallel{
-            stage('Hello Python') {
-                agent {
-                    label 'python'
+        stage('Parallel eecutions'){
+            parallel{
+                stage('Hello Python') {
+                    agent {
+                        label 'python'
+                    }
+                    steps {
+                        sh 'python -V'
+                    }
                 }
-                steps {
-                    sh 'python -V'
-                }
-            }
-            stage('Hello Java') {
-                agent {
-                    label 'java'
-                }
-                steps {
-                    sh 'mvn -version'
+                stage('Hello Java') {
+                    agent {
+                        label 'java'
+                    }
+                    steps {
+                        sh 'mvn -version'
+                    }
                 }
             }
         }
