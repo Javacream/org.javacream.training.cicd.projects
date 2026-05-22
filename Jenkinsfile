@@ -35,12 +35,16 @@ pipeline {
                     file: 'foo.txt',
                     text: 'foo'
                     )
-                sh 'ls'
-                echo 'Inhalt von bar.txt' >bar.txt
+                 writeFile(
+                    file: 'bar.txt',
+                    text: 'bar'
+                    )
                 stash(
                     name: 'foo',
                     includes: 'foo.txt'
                     )
+                
+                sh 'ls'
             }
         }
         stage ('Unstash') {
