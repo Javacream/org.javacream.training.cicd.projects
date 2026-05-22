@@ -32,13 +32,13 @@ pipeline {
             steps {
                 echo 'Stash'
                 writeFile(
-                    name: 'foo.txt'
+                    name: 'foo.txt',
                     text: 'foo'
                     )
                 sh 'ls'
                 echo 'Inhalt von bar.txt' >bar.txt
                 stash(
-                    name: 'foo'
+                    name: 'foo',
                     includes: 'foo.txt'
                     )
             }
