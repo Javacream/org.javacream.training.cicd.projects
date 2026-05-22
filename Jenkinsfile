@@ -27,24 +27,30 @@ pipeline {
     }
         stage ('Stash') {
             agent {
-                label 'generic'
+                label 'python'
             }
             steps {
                 echo 'Stash'
-                echo 'Inhalt von foo.txt' >foo.txt
+                writeFile(
+                    name: 'foo.txt'
+                    text: 'foo'
+                    )
+                sh 'ls'
                 echo 'Inhalt von bar.txt' >bar.txt
-                stash includes: 'foo.txt' name: 'foo'
+                stash(
+                    name: 'foo'
+                    includes: 'foo.txt'
+                    )
             }
         }
         stage ('Unstash') {
             agent {
-                label 'generic'
+                label 'java'
             }
             steps {
                 echo 'Unstash'
-                unstash 'foo'
-                cat foo.txt
-                cat bar.txt
+                unstash ('foo')
+                sh 'ls'
             }
         }
 }
