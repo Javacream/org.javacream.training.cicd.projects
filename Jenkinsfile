@@ -32,7 +32,7 @@ pipeline {
             steps {
                 echo 'Stash'
                 writeFile(
-                    name: 'foo.txt',
+                    file: 'foo.txt',
                     text: 'foo'
                     )
                 sh 'ls'
