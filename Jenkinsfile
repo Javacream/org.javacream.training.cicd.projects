@@ -10,11 +10,12 @@ pipeline {
             steps {
                 echo 'Hello World'
                 echo Maus
-                if (Maus % 2 ==0) {
+/*                if (Maus % 2 ==0) {
                     echo 'gerade'
                 } else {
                     echo 'ungerade'
                 }
+ */           
             }
         }
     }
