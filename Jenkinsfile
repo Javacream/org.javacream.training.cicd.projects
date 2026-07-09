@@ -1,8 +1,15 @@
 pipeline {
     agent any
 
+    environment {
+        DEPLOY_ENV = 'prod'
+    }
+
     stages {
         stage('Hello') {
+            when {
+                environment name: 'DEPLOY_ENV', value: 'prod'
+            }
             steps {
                 echo 'Hello World'
             }
