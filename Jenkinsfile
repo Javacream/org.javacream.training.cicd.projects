@@ -1,17 +1,21 @@
 pipeline {
     agent none
+    environment {
+        hello_message = 'Hello Pipeline'
+        goodbye_message = 'Goodbye Pipeline'
 
+    }
     stages {
         stage('Hello') {
             agent {label 'generic'}
             steps {
-                echo 'Hello World'
+                echo "${env.hello_message}"
             }
         }
         stage('Goodbye') {
             agent {label 'java'}
             steps {
-                echo 'Goodbye'
+                echo "${env.goodbye_message}"
             }
         }
     }
