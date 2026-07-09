@@ -8,4 +8,12 @@ pipeline {
             }
         }
     }
+    post {
+        success {
+            echo 'gut'
+        }
+        failure {
+            echo 'schlecht'
+        }
+    }
 }
