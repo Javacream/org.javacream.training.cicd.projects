@@ -15,7 +15,7 @@ pipeline {
         stage('Goodbye') {
             agent {label 'java'}
             steps {
-                error "a pipeline failure"
+                echo "${env.goodbye_message}"
             }
         }
     }
