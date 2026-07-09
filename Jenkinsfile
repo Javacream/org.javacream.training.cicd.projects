@@ -1,10 +1,15 @@
 pipeline {
     agent any
 
+    environment {
+        Maus = 7
+    }
+
     stages {
         stage('Hello') {
             steps {
-                ech 'Hello World'
+                echo 'Hello World'
+                echo Maus
             }
         }
     }
