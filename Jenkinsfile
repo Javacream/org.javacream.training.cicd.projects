@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DEPLOY_ENV = 'prod'
+        DEPLOY_ENV = 'dev'
     }
 
     stages {
