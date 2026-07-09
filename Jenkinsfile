@@ -20,7 +20,7 @@ pipeline {
             echo 'This will run only if failed'
         }
         fixed {
-            exho 'This will run only if the build was previously failing but is now successful'
+            echo 'This will run only if the build was previously failing but is now successful'
         }
     }
 }
