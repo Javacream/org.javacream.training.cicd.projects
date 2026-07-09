@@ -6,12 +6,20 @@ pipeline {
     }
 
     stages {
-        stage('Hello') {
+        stage('Prod') {
             when {
                 environment name: 'DEPLOY_ENV', value: 'prod'
             }
             steps {
-                echo 'Hello World'
+                echo 'Hello World from Prod'
+            }
+        }
+        stage('Dev') {
+            when {
+                environment name: 'DEPLOY_ENV', value: 'dev'
+            }
+            steps {
+                echo 'Hello World from Dev'
             }
         }
     }
