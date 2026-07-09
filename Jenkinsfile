@@ -10,15 +10,20 @@ pipeline {
             steps {
                 echo 'Hello World'
                 echo Maus
+                if (Maus % 2 ==0) {
+                    echo 'gerade'
+                } else {
+                    echo 'ungerade'
+                }
             }
         }
     }
     post {
         success {
-            echo 'gut'
+            echo 'lief gut'
         }
         failure {
-            echo 'schlecht'
+            echo 'lief schlecht'
         }
     }
 }
