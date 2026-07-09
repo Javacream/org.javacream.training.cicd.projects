@@ -1,58 +1,37 @@
 pipeline {
     agent none
-
     environment {
-        BUILD_VERSION = '35'
-    }
+        hello_message = 'Hello Pipeline'
+        goodbye_message = 'Goodbye Pipeline'
 
+    }
     stages {
-        stage('Parallel Stage') {
-            parallel {
-                stage('Hello') {
-                    agent { label 'generic' }
-                    steps {
-                        echo 'Hello World'
-                    }
-                }
-                stage('Goodbye') {
-                    agent { label 'java' }
-                    steps {
-                        echo 'Goodbye'
-                    }
-                }
+        stage('Hello') {
+            agent {label 'generic'}
+            steps {
+                echo "${env.hello_message}"
             }
         }
-
-        stage('Version') {
-            agent { label 'generic' }
-            when {
-                environment name: 'BUILD_VERSION', value: '35'
-            }
+        stage('Goodbye') {
+            agent {label 'java'}
             steps {
-                echo "BUILD_VERSION is ${BUILD_VERSION}"
-            }
-        }
-
-        stage('WrongVersion') {
-            agent { label 'generic' }
-            when {
-                environment name: 'BUILD_VERSION', value: '20'
-            }
-            steps {
-                echo "BUILD_VERSION is ${BUILD_VERSION}"
+                echo "${env.goodbye_message}"
             }
         }
     }
+    post { 
+        always { 
+            echo 'I will always say Hello again!'
+        }
+        success { 
+            echo 'it is a successfull pipeline run'
+        }
+        failure { 
+            echo 'it is a failed pipeline run'
+        }
+        fixed { 
+            echo 'it is a fixed pipeline run'
+        }
 
-    post {
-        always {
-            echo 'always - Run the steps in the post section regardless of the completion status'
-        }
-        success {
-            echo 'success - all stages passed'
-        }
-        failure {
-            echo 'failure-something went wrong'
-        }
     }
 }
