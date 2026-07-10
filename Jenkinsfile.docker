@@ -9,6 +9,7 @@ pipeline {
                     }
             }
             steps {
+                sh 'ls'
                 sh 'mvn -v'
             }
         }
@@ -20,6 +21,7 @@ pipeline {
                     }
             }
             steps {
+                sh 'ls'
                 sh 'python -V'
             }
         }
