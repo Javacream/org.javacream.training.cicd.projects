@@ -1,5 +1,5 @@
 pipeline {
-    agetnt none
+    agent none
     stages {
         stage('check maven is available') {
             agent {
