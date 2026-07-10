@@ -1,14 +1,26 @@
 pipeline {
-    agent {
-        docker {
-            label 'docker'
-            image 'maven'
-            }
-        }
+    agetnt none
     stages {
         stage('check maven is available') {
+            agent {
+                docker {
+                    label 'docker'
+                    image 'maven'
+                    }
+            }
             steps {
                 sh 'mvn -v'
+            }
+        }
+        stage('check python is available') {
+            agent {
+                docker {
+                    label 'docker'
+                    image 'python'
+                    }
+            }
+            steps {
+                sh 'python -V'
             }
         }
     }
