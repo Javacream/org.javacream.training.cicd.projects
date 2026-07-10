@@ -12,6 +12,7 @@ pipeline{
             steps{
                 sh 'ls'
                 sh 'mvn install'
+                sh 'ls target'
             }
         }
     }
