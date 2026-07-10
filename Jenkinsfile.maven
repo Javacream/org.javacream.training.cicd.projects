@@ -1,0 +1,11 @@
+pipeline {
+    agent {label 'java'}
+
+    stages {
+        stage('check maven is available') {
+            steps {
+                sh 'mvn -v'
+            }
+        }
+    }
+}
