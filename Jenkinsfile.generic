@@ -1,0 +1,11 @@
+pipeline {
+    agent {label 'generic'}
+
+    stages {
+        stage('check linux commands are available') {
+            steps {
+                sh 'ls'
+            }
+        }
+    }
+}
